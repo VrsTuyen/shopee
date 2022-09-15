@@ -1,0 +1,243 @@
+:root {
+    --primary-color: #d7000f;
+    --second-color: #f1f2e5;
+    --text-color: #333;
+    --white-color: #fff;
+    --black-color: #000;
+    --third-color: #F7F7F7;
+    --star-gold: gold;
+
+    --header-navbar: 32px;
+    --header-height: 120px;
+    --header-search: calc(var(--header-height) - var(--header-navbar));
+}
+
+* {
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.grid {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.grid__full-width {
+    width: 100%;
+}
+
+.grid__row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.grid__col-2 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 16.6666%;
+}
+.grid__col-2-4{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 20%;
+}
+.grid__col-10 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 83.3334%;
+}
+
+@keyframes faceIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+@keyframes growth {
+    from {
+        transform: scale(var(--growth-from));
+    }
+
+    to {
+        transform: scale(var(--growth-to));
+    }
+}
+
+/* modal */
+.modal {
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    animation: faceIn ease-in .2s;
+}
+
+.modal__overlay {
+    background-color: rgba(0, 0, 0, .4);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.modal__body {
+    background: var(--white-color);
+    margin: auto;
+    position: relative;
+    z-index: 1;
+    border-radius: 5px;
+    background-color: var(--white-color);
+    --growth-from: .7;
+    --growth-to: 1;
+    animation: growth linear .2s;
+}
+.disable{
+    cursor: default;
+    opacity: .5;
+}
+.btn {
+    border: none;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    padding: 8px 32px;
+    font-weight: 400;
+    margin: 0 12px;
+    border-radius: 2px;
+    min-width: 140px;
+    cursor: pointer;
+    line-height: 1.6rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn.btn-normal:hover {
+    background-color: #f1f2e5;
+
+}
+
+.btn-primary {
+    background-color: var(--primary-color) !important;
+    color: var(--white-color);
+}
+
+.text-transf-none {
+    text-transform: none !important;
+}
+
+.input__select {
+    font-size: 1.4rem;
+    position: relative;
+    background-color: #fff;
+    min-width: 200px;
+    border-radius: 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 34px;
+    padding: 0 8px;
+
+}
+
+.input__select-list {
+    position: absolute;
+    top: 36px;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 8px 0;
+    border-radius: 2px;
+    background-color: var(--white-color);
+    display: none;
+    animation: faceIn ease-in .2s;
+    z-index: 1;
+}
+
+.input__select-item {
+    width: 100%;
+    list-style: none;
+   
+}
+
+.input__item-link {
+    text-decoration: none;
+    color: var(--text-color);
+    width: 100%;
+    line-height: 1.6rem;
+    padding: 8px;
+    display: flex;
+}
+
+.input__item-link:hover{
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.input__select:hover .input__select-list{
+    display: block;
+}
+.input__select-pseudo::after{
+    top: -12px;
+    right: 0;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 16px;
+    position: absolute;
+}
+.box--shadow{
+    box-shadow: 0 0 1px   rgba(0, 0, 0, .2);
+}
+
+.mbt{
+    margin-bottom: 10px;
+}
+.panigation{
+    text-align: center;
+}
+.panigation__container{
+   list-style: none;
+   white-space: unset;
+   display: flex;
+    justify-content: center;
+}
+
+.panigation__list{
+    margin: 0 8px;
+    border-radius: 2px;
+}
+    
+.panigation__list:hover{
+    opacity: .7;
+}
+
+.panigation__link{
+    width: 100%;
+    height: 100%;
+    display: block;
+    min-width: 40px;
+    text-decoration: none;
+    font-size: 1.8rem;
+    height: 30px;
+    line-height: 30px;
+    color: rgb(189, 189, 189);
+    padding: 0 12px;
+    font-weight: 300;
+}
+

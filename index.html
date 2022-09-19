@@ -5,16 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/grid.css">
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/css/normalize.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
     <link rel="stylesheet" href="./assets/fonts/fontawesome-6.2.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
-    <link rel='stylesheet'
-        href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel="stylesheet" href="./assets/fonts/uicons-regular-rounded/css/uicons-regular-rounded.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <title>Shop</title>
 </head>
@@ -22,9 +21,9 @@
 <body>
     <div class="main">
         <!-- header -->
-        <header class="header">
-            <div class="grid">
-                <nav class="header__navbar">
+        <div class="header">
+            <div class="grid wide">
+                <nav class="header__navbar hide-on-mobile-tablet">
                     <ul class="header__navbar-list">
                         <li class="header__navbar-item header__navbar-item--has-qr header__navbar-item-separate">
                             Vào cửa hàng trên ứng dụng
@@ -120,6 +119,11 @@
                     </ul>
                 </nav>
                 <div class="header__search">
+
+                    <label for="check__search">
+                        <i class="header__icon-search fi fi-rr-search"></i>
+                    </label>
+
                     <i class="header__search-logo">
                         <a href="/" class="header_logo-link">
                             <svg viewBox="0 0 192 65">
@@ -131,6 +135,7 @@
                             </svg>
                         </a>
                     </i>
+                    <input type="checkbox" hidden name="" id="check__search" class="header__search-with-checkbox">
                     <!-- search -->
                     <div class="header__search-bar">
                         <span class="header__search-span">
@@ -151,13 +156,15 @@
                         </span>
                         <div class="header__search-select">
                             <span class="header__search-select-label">Trong Shop</span>
-                            <i class="header__search-select-icon fi fi-rs-sort-down"></i>
+                            <i class="header__search-select-icon fi fi-rr-sort-down">
+                                <!-- <img src="./assets/image/sort-down.png" alt=""> -->
+                            </i>
                             <ul class="header__search-opption">
                                 <li class="header__search-opption-item header__search-opption-item--active">Trong Shop
-                                    <i class="header__search-opption-item-check fi fi-br-check"></i>
+                                    <i class="header__search-opption-item-check fi fi-rr-check"></i>
                                 </li>
                                 <li class="header__search-opption-item">Ngoài Shop
-                                    <i class="fi fi-br-check"></i>
+                                    <i class="fi fi-rr-check"></i>
                                 </li>
                             </ul>
                         </div>
@@ -166,154 +173,186 @@
 
                     <!-- cart -->
                     <div class="header__cart">
+                        <div class="header__cart-container">
+                            <i class="header__cart-icon fi fi-rr-shopping-cart">
+                                <span class="header__cart-notice">3</span>
+                                <!-- no cart: header__cart-list--no-cart -->
+                                <div class="header__cart-list">
+                                    <img src="https://f8ubuntu.online/assets/img/no_cart.png" alt=""
+                                        class="header_cart-list-no-cart-img">
+                                    <span class="header__cart-list-no-cart-text">
+                                        Chưa có sản phẩm nào.
+                                    </span>
 
-                        <i class="header__cart-icon fi fi-rr-shopping-cart">
-                            <span class="header__cart-notice">3</span>
-                            <!-- no cart: header__cart-list--no-cart -->
-                            <div class="header__cart-list">
-                                <img src="https://f8ubuntu.online/assets/img/no_cart.png" alt=""
-                                    class="header_cart-list-no-cart-img">
-                                <span class="header__cart-list-no-cart-text">
-                                    Chưa có sản phẩm nào.
-                                </span>
+                                    <!-- has cart -->
+                                    <h3 class="header__cart-list-heading">Giỏ hàng</h3>
+                                    <ul class="header__cart-list-item">
+                                        <li class="header__cart-item">
+                                            <img src="https://m.media-amazon.com/images/I/514R9aZXosL._AC_SL1200_.jpg"
+                                                alt="" class="header_cart-item-img">
 
-                                <!-- has cart -->
-                                <h3 class="header__cart-list-heading">Giỏ hàng</h3>
-                                <ul class="header__cart-list-item">
-                                    <li class="header__cart-item">
-                                        <img src="https://m.media-amazon.com/images/I/514R9aZXosL._AC_SL1200_.jpg"
-                                            alt="" class="header_cart-item-img">
-
-                                        <div class="header__cart-item-body">
-                                            <header class="header__cart-item-head">
-                                                <h4 class="header__cart-item-name">Iphone 11 128Gb Preto iOS 4G Camera
-                                                    12Mp - Apple</h4>
-                                                <div class="header__cart-price-wrap">
-                                                    <span class="header__cart-price">11.000.000đ</span>
-                                                    <span class="header__cart-multiply">x</span>
-                                                    <span class="header__cart-quantity">2</span>
+                                            <div class="header__cart-item-body">
+                                                <header class="header__cart-item-head">
+                                                    <h4 class="header__cart-item-name">Iphone 11 128Gb Preto iOS 4G
+                                                        Camera
+                                                        12Mp - Apple</h4>
+                                                    <div class="header__cart-price-wrap">
+                                                        <span class="header__cart-price">11.000.000đ</span>
+                                                        <span class="header__cart-multiply">x</span>
+                                                        <span class="header__cart-quantity">2</span>
+                                                    </div>
+                                                </header>
+                                                <div class="header__cart-item-wrap-classify">
+                                                    <span class="header__cart-item-classify">Phân loại: Preto</span>
+                                                    <span class="header__cart-item-remove">Xóa</span>
                                                 </div>
-                                            </header>
-                                            <div class="header__cart-item-wrap-classify">
-                                                <span class="header__cart-item-classify">Phân loại: Preto</span>
-                                                <span class="header__cart-item-remove">Xóa</span>
                                             </div>
-                                        </div>
-                                    </li>
-                                    <li class="header__cart-item">
-                                        <img src="https://m.media-amazon.com/images/I/514R9aZXosL._AC_SL1200_.jpg"
-                                            alt="" class="header_cart-item-img">
+                                        </li>
+                                        <li class="header__cart-item">
+                                            <img src="https://m.media-amazon.com/images/I/514R9aZXosL._AC_SL1200_.jpg"
+                                                alt="" class="header_cart-item-img">
 
-                                        <div class="header__cart-item-body">
-                                            <header class="header__cart-item-head">
-                                                <h4 class="header__cart-item-name">Iphone 11 128Gb Preto iOS 4G Camera
-                                                    12Mp - Apple</h4>
-                                                <div class="header__cart-price-wrap">
-                                                    <span class="header__cart-price">11.000.000đ</span>
-                                                    <span class="header__cart-multiply">x</span>
-                                                    <span class="header__cart-quantity">2</span>
+                                            <div class="header__cart-item-body">
+                                                <header class="header__cart-item-head">
+                                                    <h4 class="header__cart-item-name">Iphone 11 128Gb Preto iOS 4G
+                                                        Camera
+                                                        12Mp - Apple</h4>
+                                                    <div class="header__cart-price-wrap">
+                                                        <span class="header__cart-price">11.000.000đ</span>
+                                                        <span class="header__cart-multiply">x</span>
+                                                        <span class="header__cart-quantity">2</span>
+                                                    </div>
+                                                </header>
+                                                <div class="header__cart-item-wrap-classify">
+                                                    <span class="header__cart-item-classify">Phân loại: Preto</span>
+                                                    <span class="header__cart-item-remove">Xóa</span>
                                                 </div>
-                                            </header>
-                                            <div class="header__cart-item-wrap-classify">
-                                                <span class="header__cart-item-classify">Phân loại: Preto</span>
-                                                <span class="header__cart-item-remove">Xóa</span>
                                             </div>
-                                        </div>
-                                    </li>
-                                    <li class="header__cart-item">
-                                        <img src="https://m.media-amazon.com/images/I/514R9aZXosL._AC_SL1200_.jpg"
-                                            alt="" class="header_cart-item-img">
+                                        </li>
+                                        <li class="header__cart-item">
+                                            <img src="https://m.media-amazon.com/images/I/514R9aZXosL._AC_SL1200_.jpg"
+                                                alt="" class="header_cart-item-img">
 
-                                        <div class="header__cart-item-body">
-                                            <header class="header__cart-item-head">
-                                                <h4 class="header__cart-item-name">Iphone 11 128Gb Preto iOS 4G Camera
-                                                    12Mp - Apple</h4>
-                                                <div class="header__cart-price-wrap">
-                                                    <span class="header__cart-price">11.000.000đ</span>
-                                                    <span class="header__cart-multiply">x</span>
-                                                    <span class="header__cart-quantity">2</span>
+                                            <div class="header__cart-item-body">
+                                                <header class="header__cart-item-head">
+                                                    <h4 class="header__cart-item-name">Iphone 11 128Gb Preto iOS 4G
+                                                        Camera
+                                                        12Mp - Apple</h4>
+                                                    <div class="header__cart-price-wrap">
+                                                        <span class="header__cart-price">11.000.000đ</span>
+                                                        <span class="header__cart-multiply">x</span>
+                                                        <span class="header__cart-quantity">2</span>
+                                                    </div>
+                                                </header>
+                                                <div class="header__cart-item-wrap-classify">
+                                                    <span class="header__cart-item-classify">Phân loại: Preto</span>
+                                                    <span class="header__cart-item-remove">Xóa</span>
                                                 </div>
-                                            </header>
-                                            <div class="header__cart-item-wrap-classify">
-                                                <span class="header__cart-item-classify">Phân loại: Preto</span>
-                                                <span class="header__cart-item-remove">Xóa</span>
                                             </div>
-                                        </div>
-                                    </li>
-                                    <li class="header__cart-item">
-                                        <img src="https://m.media-amazon.com/images/I/514R9aZXosL._AC_SL1200_.jpg"
-                                            alt="" class="header_cart-item-img">
+                                        </li>
+                                        <li class="header__cart-item">
+                                            <img src="https://m.media-amazon.com/images/I/514R9aZXosL._AC_SL1200_.jpg"
+                                                alt="" class="header_cart-item-img">
 
-                                        <div class="header__cart-item-body">
-                                            <header class="header__cart-item-head">
-                                                <h4 class="header__cart-item-name">Iphone 11 128Gb Preto iOS 4G Camera
-                                                    12Mp - Apple</h4>
-                                                <div class="header__cart-price-wrap">
-                                                    <span class="header__cart-price">11.000.000đ</span>
-                                                    <span class="header__cart-multiply">x</span>
-                                                    <span class="header__cart-quantity">2</span>
+                                            <div class="header__cart-item-body">
+                                                <header class="header__cart-item-head">
+                                                    <h4 class="header__cart-item-name">Iphone 11 128Gb Preto iOS 4G
+                                                        Camera
+                                                        12Mp - Apple</h4>
+                                                    <div class="header__cart-price-wrap">
+                                                        <span class="header__cart-price">11.000.000đ</span>
+                                                        <span class="header__cart-multiply">x</span>
+                                                        <span class="header__cart-quantity">2</span>
+                                                    </div>
+                                                </header>
+                                                <div class="header__cart-item-wrap-classify">
+                                                    <span class="header__cart-item-classify">Phân loại: Preto</span>
+                                                    <span class="header__cart-item-remove">Xóa</span>
                                                 </div>
-                                            </header>
-                                            <div class="header__cart-item-wrap-classify">
-                                                <span class="header__cart-item-classify">Phân loại: Preto</span>
-                                                <span class="header__cart-item-remove">Xóa</span>
                                             </div>
-                                        </div>
-                                    </li>
-                                    <li class="header__cart-item">
-                                        <img src="https://m.media-amazon.com/images/I/514R9aZXosL._AC_SL1200_.jpg"
-                                            alt="" class="header_cart-item-img">
+                                        </li>
+                                        <li class="header__cart-item">
+                                            <img src="https://m.media-amazon.com/images/I/514R9aZXosL._AC_SL1200_.jpg"
+                                                alt="" class="header_cart-item-img">
 
-                                        <div class="header__cart-item-body">
-                                            <header class="header__cart-item-head">
-                                                <h4 class="header__cart-item-name">Iphone 11 128Gb Preto iOS 4G Camera
-                                                    12Mp - Apple</h4>
-                                                <div class="header__cart-price-wrap">
-                                                    <span class="header__cart-price">11.000.000đ</span>
-                                                    <span class="header__cart-multiply">x</span>
-                                                    <span class="header__cart-quantity">2</span>
+                                            <div class="header__cart-item-body">
+                                                <header class="header__cart-item-head">
+                                                    <h4 class="header__cart-item-name">Iphone 11 128Gb Preto iOS 4G
+                                                        Camera
+                                                        12Mp - Apple</h4>
+                                                    <div class="header__cart-price-wrap">
+                                                        <span class="header__cart-price">11.000.000đ</span>
+                                                        <span class="header__cart-multiply">x</span>
+                                                        <span class="header__cart-quantity">2</span>
+                                                    </div>
+                                                </header>
+                                                <div class="header__cart-item-wrap-classify">
+                                                    <span class="header__cart-item-classify">Phân loại: Preto</span>
+                                                    <span class="header__cart-item-remove">Xóa</span>
                                                 </div>
-                                            </header>
-                                            <div class="header__cart-item-wrap-classify">
-                                                <span class="header__cart-item-classify">Phân loại: Preto</span>
-                                                <span class="header__cart-item-remove">Xóa</span>
                                             </div>
-                                        </div>
-                                    </li>
-                                    <li class="header__cart-item">
-                                        <img src="https://m.media-amazon.com/images/I/514R9aZXosL._AC_SL1200_.jpg"
-                                            alt="" class="header_cart-item-img">
+                                        </li>
+                                        <li class="header__cart-item">
+                                            <img src="https://m.media-amazon.com/images/I/514R9aZXosL._AC_SL1200_.jpg"
+                                                alt="" class="header_cart-item-img">
 
-                                        <div class="header__cart-item-body">
-                                            <header class="header__cart-item-head">
-                                                <h4 class="header__cart-item-name">Iphone 11 128Gb Preto iOS 4G Camera
-                                                    12Mp - Apple</h4>
-                                                <div class="header__cart-price-wrap">
-                                                    <span class="header__cart-price">11.000.000đ</span>
-                                                    <span class="header__cart-multiply">x</span>
-                                                    <span class="header__cart-quantity">2</span>
+                                            <div class="header__cart-item-body">
+                                                <header class="header__cart-item-head">
+                                                    <h4 class="header__cart-item-name">Iphone 11 128Gb Preto iOS 4G
+                                                        Camera
+                                                        12Mp - Apple</h4>
+                                                    <div class="header__cart-price-wrap">
+                                                        <span class="header__cart-price">11.000.000đ</span>
+                                                        <span class="header__cart-multiply">x</span>
+                                                        <span class="header__cart-quantity">2</span>
+                                                    </div>
+                                                </header>
+                                                <div class="header__cart-item-wrap-classify">
+                                                    <span class="header__cart-item-classify">Phân loại: Preto</span>
+                                                    <span class="header__cart-item-remove">Xóa</span>
                                                 </div>
-                                            </header>
-                                            <div class="header__cart-item-wrap-classify">
-                                                <span class="header__cart-item-classify">Phân loại: Preto</span>
-                                                <span class="header__cart-item-remove">Xóa</span>
                                             </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <button class="btn btn-primary btn__cart">Xem giỏ hàng</button>
-                            </div>
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-primary btn__cart">Xem giỏ hàng</button>
+                                </div>
+                            </i>
+                        </div>
+                        <i class="header__user-icon fi fi-rr-user">
                         </i>
-
                     </div>
                 </div>
             </div>
-        </header>
+            <ul class="header__sort-bar">
+                <li class="header__sort-bar-item">
+                    <a href="" class="header__sort-bar-link">Liên Quan</a>
+                </li>
+
+                <li class="header__sort-bar-item header__sort-bar--active">
+                    <a href="" class="header__sort-bar-link ">Mới nhất</a>
+                </li>
+
+                <li class="header__sort-bar-item">
+                    <a href="" class="header__sort-bar-link">Bán chạy</a>
+                </li>
+
+                <li class="header__sort-bar-item">
+                    <a href="" class="header__sort-bar-link">
+                        Giá
+                        <div class="sort-bar__filter">
+                            <i class="sort-bar__filter-icon-up fi fi-rr-angle-small-up"></i>
+                            <i class="sort-bar__filter-icon-down fi fi-rr-angle-small-up"></i>
+
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
         <!-- container -->
         <div class="container">
-            <div class="grid">
-                <div class="grid__row container__content">
-                    <div class="grid__col-2">
+            <div class="grid wide">
+                <div class="row container__content">
+                    <div class="col l-2 m-0 s-0">
                         <nav class="nav__category">
                             <span class="nav__head-category">
                                 <h3 class="nav__heading-category nav__heading-category--separate ">
@@ -338,19 +377,23 @@
                         </nav>
                     </div>
 
-                    <div class="grid__col-10">
-                        <div class="container__filter">
+                    <div class="col l-10 m-12 s-12">
+                        <div class="container__filter hide-on-mobile-tablet">
                             <span class="container__filter-label">Sắp xếp theo</span>
                             <button class="btn__filter box--shadow btn">Phổ biến</button>
                             <button class="btn__filter box--shadow btn btn-primary">Mới nhất</button>
                             <button class="btn__filter box--shadow btn">Bán chạy</button>
                             <div class="input__select box--shadow">Giá
-                                <i class="fi fi-rs-sort-down"></i>
+                                <i class="fa-solid fa-angle-down"></i>
                                 <ul class="input__select-list  input__select-pseudo ">
-                                    <li class="input__select-item"><a href="" class="input__item-link">Giá: Thấp đến
-                                            cao</a></li>
-                                    <li class="input__select-item"><a href="" class="input__item-link">Giá: Cao đến
-                                            thấp</a></li>
+                                    <li class="input__select-item">
+                                        <a href="" class="input__item-link">Giá: Thấp đến cao
+                                        </a>
+                                    </li>
+                                    <li class="input__select-item">
+                                        <a href="" class="input__item-link">Giá: Cao đến thấp
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="container__page">
@@ -365,8 +408,39 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="grid__row mbt-10">
-                            <div class="grid__col-2-4">
+                        <nav class="nav-bar__mobile">
+                            <ul class="nav-bar__mobile-list">
+                                <li class="nav-bar__mobile-item"><a href="" class="nav-bar__mobile-link">Điện thoại</a>
+                                </li>
+                                <li class="nav-bar__mobile-item"><a href="" class="nav-bar__mobile-link">Máy tính
+                                        bảng</a></li>
+                                <li class="nav-bar__mobile-item"><a href="" class="nav-bar__mobile-link">Laptop</a></li>
+                                <li class="nav-bar__mobile-item"><a href="" class="nav-bar__mobile-link">Desktop</a>
+                                </li>
+                                <li class="nav-bar__mobile-item"><a href="" class="nav-bar__mobile-link">Phụ kiện</a>
+                                </li>
+                                <li class="nav-bar__mobile-item"><a href="" class="nav-bar__mobile-link">Điện thoại</a>
+                                </li>
+                                <li class="nav-bar__mobile-item"><a href="" class="nav-bar__mobile-link">Máy tính
+                                        bảng</a></li>
+                                <li class="nav-bar__mobile-item"><a href="" class="nav-bar__mobile-link">Laptop</a></li>
+                                <li class="nav-bar__mobile-item"><a href="" class="nav-bar__mobile-link">Desktop</a>
+                                </li>
+                                <li class="nav-bar__mobile-item"><a href="" class="nav-bar__mobile-link">Phụ kiện</a>
+                                </li>
+                                <li class="nav-bar__mobile-item"><a href="" class="nav-bar__mobile-link">Điện thoại</a>
+                                </li>
+                                <li class="nav-bar__mobile-item"><a href="" class="nav-bar__mobile-link">Máy tính
+                                        bảng</a></li>
+                                <li class="nav-bar__mobile-item"><a href="" class="nav-bar__mobile-link">Laptop</a></li>
+                                <li class="nav-bar__mobile-item"><a href="" class="nav-bar__mobile-link">Desktop</a>
+                                </li>
+                                <li class="nav-bar__mobile-item"><a href="" class="nav-bar__mobile-link">Phụ kiện</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="row sm-gutter">
+                            <div class="col l-2-4 m-3 s-6">
                                 <a href="" class="home__product-item">
                                     <div class="home__bg-item"
                                         style="background-image: url(https://m.media-amazon.com/images/I/71iO2R+CLjL._AC_SL1500_.jpg) ;">
@@ -414,7 +488,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="grid__col-2-4">
+                            <div class="col l-2-4 m-3 s-6">
                                 <a href="" class="home__product-item">
                                     <div class="home__bg-item"
                                         style="background-image: url(https://m.media-amazon.com/images/I/71iO2R+CLjL._AC_SL1500_.jpg) ;">
@@ -462,7 +536,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="grid__col-2-4">
+                            <div class="col l-2-4 m-3 s-6">
                                 <a href="" class="home__product-item">
                                     <div class="home__bg-item"
                                         style="background-image: url(https://m.media-amazon.com/images/I/71iO2R+CLjL._AC_SL1500_.jpg) ;">
@@ -510,7 +584,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="grid__col-2-4">
+                            <div class="col l-2-4 m-3 s-6">
                                 <a href="" class="home__product-item">
                                     <div class="home__bg-item"
                                         style="background-image: url(https://m.media-amazon.com/images/I/71iO2R+CLjL._AC_SL1500_.jpg) ;">
@@ -558,7 +632,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="grid__col-2-4">
+                            <div class="col l-2-4 m-3 s-6">
                                 <a href="" class="home__product-item">
                                     <div class="home__bg-item"
                                         style="background-image: url(https://m.media-amazon.com/images/I/71iO2R+CLjL._AC_SL1500_.jpg) ;">
@@ -606,7 +680,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="grid__col-2-4">
+                            <div class="col l-2-4 m-3 s-6">
                                 <a href="" class="home__product-item">
                                     <div class="home__bg-item"
                                         style="background-image: url(https://m.media-amazon.com/images/I/71iO2R+CLjL._AC_SL1500_.jpg) ;">
@@ -654,7 +728,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="grid__col-2-4">
+                            <div class="col l-2-4 m-3 s-6">
                                 <a href="" class="home__product-item">
                                     <div class="home__bg-item"
                                         style="background-image: url(https://m.media-amazon.com/images/I/71iO2R+CLjL._AC_SL1500_.jpg) ;">
@@ -702,7 +776,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="grid__col-2-4">
+                            <div class="col l-2-4 m-3 s-6">
                                 <a href="" class="home__product-item">
                                     <div class="home__bg-item"
                                         style="background-image: url(https://m.media-amazon.com/images/I/71iO2R+CLjL._AC_SL1500_.jpg) ;">
@@ -750,7 +824,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="grid__col-2-4">
+                            <div class="col l-2-4 m-3 s-6">
                                 <a href="" class="home__product-item">
                                     <div class="home__bg-item"
                                         style="background-image: url(https://m.media-amazon.com/images/I/71iO2R+CLjL._AC_SL1500_.jpg) ;">
@@ -798,7 +872,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="grid__col-2-4">
+                            <div class="col l-2-4 m-3 s-6">
                                 <a href="" class="home__product-item">
                                     <div class="home__bg-item"
                                         style="background-image: url(https://cf.shopee.vn/file/2477942b1ded3ec5ad3108a6e3140f63) ;">
@@ -846,7 +920,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="grid__col-2-4">
+                            <div class="col l-2-4 m-3 s-6">
                                 <a href="" class="home__product-item">
                                     <div class="home__bg-item"
                                         style="background-image: url(https://cf.shopee.vn/file/de8b9beb07d07c5977add4025a4ce523) ;">
@@ -894,7 +968,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="grid__col-2-4">
+                            <div class="col l-2-4 m-3 s-6">
                                 <a href="" class="home__product-item">
                                     <div class="home__bg-item"
                                         style="background-image: url(https://m.media-amazon.com/images/I/71iO2R+CLjL._AC_SL1500_.jpg) ;">
@@ -942,7 +1016,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="grid__col-2-4">
+                            <div class="col l-2-4 m-3 s-6">
                                 <a href="" class="home__product-item">
                                     <div class="home__bg-item"
                                         style="background-image: url(https://m.media-amazon.com/images/I/71iO2R+CLjL._AC_SL1500_.jpg) ;">
@@ -990,7 +1064,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="grid__col-2-4">
+                            <div class="col l-2-4 m-3 s-6">
                                 <a href="" class="home__product-item">
                                     <div class="home__bg-item"
                                         style="background-image: url(https://m.media-amazon.com/images/I/71iO2R+CLjL._AC_SL1500_.jpg) ;">
@@ -1038,7 +1112,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="grid__col-2-4">
+                            <div class="col l-2-4 m-3 s-6">
                                 <a href="" class="home__product-item">
                                     <div class="home__bg-item"
                                         style="background-image: url(https://m.media-amazon.com/images/I/71iO2R+CLjL._AC_SL1500_.jpg) ;">
@@ -1127,9 +1201,9 @@
         </div>
         <!-- footer -->
         <footer class="footer footer--separate">
-            <div class="grid ">
-                <div class="grid__row">
-                    <div class="grid__col-2-4">
+            <div class="grid wide">
+                <div class="row">
+                    <div class="col l-2-4 m-4 s-6">
                         <h3 class="footer__heading">Chăm sóc khách hàng</h3>
                         <ul class="footer__list">
                             <li class="footer__list-item">
@@ -1139,7 +1213,7 @@
                                 <a href="#" class="footer__list-item-link">Chăm sóc khách hàng</a>
                             </li>
                             <li class="footer__list-item">
-                                <a href="#" class="footer__list-item-link">Thanh toán</a>
+                                <a href="#" class="footer__list-item-link hid">Thanh toán</a>
                             </li>
                             <li class="footer__list-item">
                                 <a href="#" class="footer__list-item-link">Hướng dẫn mua hàng</a>
@@ -1149,7 +1223,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="grid__col-2-4">
+                    <div class="col l-2-4 m-4 s-6">
                         <h3 class="footer__heading">Về Shop</h3>
                         <ul class="footer__list">
                             <li class="footer__list-item">
@@ -1166,10 +1240,10 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="grid__col-2-4">
-                       
+                    <div class="col l-2-4 m-0 s-0">
+
                     </div>
-                    <div class="grid__col-2-4">
+                    <div class="col l-2-4 m-4 s-6">
                         <h3 class="footer__heading">Theo dõi chúng tôi</h3>
                         <ul class="footer__list">
                             <li class="footer__list-item">
@@ -1192,19 +1266,20 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="grid__col-2-4">
+                    <div class="col l-2-4 m-4 s-6">
                         <h3 class="footer__heading">Tải ứng dụng</h3>
                         <div class="footer__download">
                             <img class="footer__heading-qr"
-                            src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg//assets/d91264e165ed6facc6178994d5afae79.png"
-                            alt="Download">
-                        <div class="footer__download-mobile">
-                            <a href="#" class="header__mobile-link footer-mobile-link">
-                                <img src="./assets/image/google_play.png" alt="Google Play"
-                                    class="header__qr-download"></a>
-                            <a href="#" class="header__mobile-link footer-mobile-link">
-                                <img src="./assets/image/app_store.png" alt="App Store" class="header__qr-download"></a>
-                        </div>
+                                src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg//assets/d91264e165ed6facc6178994d5afae79.png"
+                                alt="Download">
+                            <div class="footer__download-mobile">
+                                <a href="#" class="header__mobile-link footer-mobile-link">
+                                    <img src="./assets/image/google_play.png" alt="Google Play"
+                                        class="header__qr-download"></a>
+                                <a href="#" class="header__mobile-link footer-mobile-link">
+                                    <img src="./assets/image/app_store.png" alt="App Store"
+                                        class="header__qr-download"></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1345,6 +1420,19 @@
         </div>
     </div>
      -->
+
+
+    <!-- modal menu -->
+    <!-- <input type="checkbox" id="modal__menu" class = "modal__menu" hidden>
+    <div class="modal">
+       <div class="modal__overlay">
+           <div class="modal__body modal__body-mobile">
+               <div class="modal__menu-slide">
+                  
+               </div>
+           </div>
+       </div>
+    </div> -->
 </body>
 
 </html>
